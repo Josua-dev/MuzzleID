@@ -53,7 +53,7 @@ export default function Alerts() {
               </div>
               <div className="grid grid-cols-2 gap-2 px-4 pb-4">
                 <Button variant="outline" onClick={() => { closeTransfer(user!, t.id, 'DECLINED', online); toast('Transfer declined', 'warn'); }}>Decline</Button>
-                <Button icon="check" onClick={() => { acceptTransfer(user!, t.id, online); toast('TRANSFER COMPLETE — animal added to your herd'); }}>Accept</Button>
+                <Button icon="check" onClick={() => { acceptTransfer(user!, t.id, online); toast('Transfer complete. Animal added to your herd'); }}>Accept</Button>
               </div>
             </Card>
           ))}

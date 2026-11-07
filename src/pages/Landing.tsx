@@ -27,7 +27,7 @@ function Comparison() {
   const [side, setSide] = useState<'trad' | 'mz'>('mz');
   const trad = [
     { t: 'Ear tag', d: 'Can be removed, lost, damaged or swapped.', icon: 'tag' as IconName },
-    { t: 'Branding', d: 'A physical mark — but carries limited digital information.', icon: 'flag' as IconName },
+    { t: 'Branding', d: 'A physical mark, but it holds almost no digital information.', icon: 'flag' as IconName },
     { t: 'Paper records', d: 'Hard to search, easy to lose, slow to verify in the field.', icon: 'file' as IconName },
   ];
   const mz = [
@@ -35,7 +35,7 @@ function Comparison() {
     { t: 'Non-invasive capture', d: 'A phone photo. No marking, no cutting, no stress.', icon: 'camera' as IconName },
     { t: 'Linked digital identity', d: 'Owner, farm, health and history in one record.', icon: 'database' as IconName },
     { t: 'Searchable history', d: 'Timeline of vaccinations, transfers and reports.', icon: 'route' as IconName },
-    { t: 'Additional identification layer', d: 'Works alongside ear tags and branding — not instead of them.', icon: 'layers' as IconName },
+    { t: 'Additional identification layer', d: 'Works next to ear tags and branding. It does not replace them.', icon: 'layers' as IconName },
   ];
   const list = side === 'trad' ? trad : mz;
   return (
@@ -80,7 +80,7 @@ export default function Landing() {
               <Icon name="fingerprint" size={14} /> Livestock digital identity
             </p>
             <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl">Every Animal Has an Identity.</h1>
-            <p className="mt-5 max-w-xl text-lg text-white/85">MuzzleID creates a digital identity for livestock using biometric muzzle recognition, helping farmers strengthen identification, records and traceability.</p>
+            <p className="mt-5 max-w-xl text-lg text-white/85">Photograph an animal's muzzle to register it. Scan it later to pull up its owner, health history and any theft report.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <button onClick={() => navigate('/signin')} className="inline-flex h-14 items-center justify-center gap-2 rounded-xl bg-sand-500 px-7 text-base font-extrabold tracking-wide text-charcoal-950 hover:bg-sand-400"><Icon name="scan" /> TRY DEMO</button>
               <button onClick={register} className="inline-flex h-14 items-center justify-center gap-2 rounded-xl bg-white/10 px-7 text-base font-extrabold tracking-wide text-white ring-2 ring-white/40 hover:bg-white/20"><Icon name="plus" /> REGISTER LIVESTOCK</button>
@@ -88,7 +88,7 @@ export default function Landing() {
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/75">
               <span className="flex items-center gap-2"><Icon name="wifiOff" size={16} className="text-sand-400" /> Works offline</span>
               <span className="flex items-center gap-2"><Icon name="device" size={16} className="text-sand-400" /> Any smartphone</span>
-              <span className="flex items-center gap-2"><Icon name="lock" size={16} className="text-sand-400" /> Owner privacy protected</span>
+              <span className="flex items-center gap-2"><Icon name="lock" size={16} className="text-sand-400" /> Owner details masked by default</span>
             </div>
           </div>
           <div className="relative mx-auto w-full max-w-sm">
@@ -120,7 +120,7 @@ export default function Landing() {
         <div className="rounded-3xl bg-forest-800 p-7 text-white">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-sand-400">The idea</p>
           <h2 className="mt-3 text-2xl font-extrabold">Use the animal's natural muzzle pattern as an additional biometric identity.</h2>
-          <p className="mt-3 text-white/70">Like a fingerprint, the ridges and beads on a cow's muzzle form a distinctive pattern — captured with a phone, linked to a secure digital record.</p>
+          <p className="mt-3 text-white/70">Like a fingerprint, the ridges and beads on a cow's muzzle form a pattern that is different on every animal. You capture it with a phone and link it to the animal's record.</p>
         </div>
       </section>
 
@@ -128,7 +128,7 @@ export default function Landing() {
       <section className="bg-sand-50 py-16">
         <div className="mx-auto max-w-6xl px-5">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-sand-700">How it works</p>
-          <h2 className="mt-2 text-3xl font-extrabold tracking-tight">Four steps. One phone.</h2>
+          <h2 className="mt-2 text-3xl font-extrabold tracking-tight">From photo to register entry</h2>
           <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((s) => (
               <li key={s.n} className="rounded-3xl bg-white p-6 ring-1 ring-charcoal-900/8">
@@ -155,7 +155,7 @@ export default function Landing() {
       <section className="bg-forest-950 py-16 text-white">
         <div className="mx-auto max-w-6xl px-5">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-sand-400">Use cases</p>
-          <h2 className="mt-2 text-3xl font-extrabold tracking-tight">One identity. Many uses.</h2>
+          <h2 className="mt-2 text-3xl font-extrabold tracking-tight">What it is for</h2>
           <ul className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4">
             {USES.map((u) => (
               <li key={u.t} className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
@@ -171,25 +171,22 @@ export default function Landing() {
       {/* Built for off-grid */}
       <section className="mx-auto grid max-w-6xl items-center gap-8 px-5 py-16 md:grid-cols-2">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-forest-700">Built for the farm, not the office</p>
-          <h2 className="mt-2 text-3xl font-extrabold tracking-tight">Works where the signal doesn't.</h2>
-          <p className="mt-3 text-charcoal-500">Install MuzzleID on your phone. Records stay on the device, registrations are saved offline as <b>pending sync</b>, and everything uploads automatically when you're back in range.</p>
-          <div className="mt-6 flex flex-wrap gap-2 text-sm font-semibold">
-            {['Large buttons', 'One-hand use', 'Minimal typing', 'Offline records', 'Installable app'].map((t) => <span key={t} className="rounded-full bg-forest-50 px-3 py-1.5 text-forest-800 ring-1 ring-forest-600/20">{t}</span>)}
-          </div>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-forest-700">Offline</p>
+          <h2 className="mt-2 text-3xl font-extrabold tracking-tight">Works with no signal.</h2>
+          <p className="mt-3 text-charcoal-500">Install it on your phone. Registrations made without signal are saved on the device as <b>pending sync</b> and upload when you are back in range.</p>
         </div>
-        <div className="grid grid-cols-3 gap-3">
-          {[['ONLINE', 'bg-forest-100 text-forest-800', 'wifi'], ['OFFLINE', 'bg-charcoal-900 text-white', 'wifiOff'], ['SYNCED', 'bg-sand-100 text-sand-700', 'refresh']].map(([t, c, i]) => (
-            <div key={t} className={cn('flex aspect-square flex-col items-center justify-center gap-2 rounded-3xl text-xs font-extrabold tracking-widest', c)}><Icon name={i as IconName} size={30} />{t}</div>
-          ))}
-        </div>
+        <ul className="space-y-3 text-charcoal-700">
+          <li className="rounded-2xl border border-charcoal-900/8 p-4"><b>No signal:</b> you can still register an animal, check one against the records on the phone, and add a health note.</li>
+          <li className="rounded-2xl border border-charcoal-900/8 p-4"><b>Back in range:</b> pending items upload on their own.</li>
+          <li className="rounded-2xl border border-charcoal-900/8 p-4"><b>Duplicates:</b> a new animal that looks like one already registered is flagged for review.</li>
+        </ul>
       </section>
 
       {/* CTA */}
       <section className="px-5 pb-16">
         <div className="mx-auto max-w-6xl rounded-3xl bg-forest-800 px-6 py-12 text-center text-white">
-          <h2 className="text-3xl font-extrabold tracking-tight">Every Animal Has an Identity.</h2>
-          <p className="mx-auto mt-2 max-w-lg text-white/75">Try the full prototype with demo farmers, cattle, a stolen-animal alert and offline sync.</p>
+          <h2 className="text-3xl font-extrabold tracking-tight">Try it with the demo herd.</h2>
+          <p className="mx-auto mt-2 max-w-lg text-white/75">The demo has sample farmers and cattle, a stolen-animal alert and offline sync you can switch on and off.</p>
           <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
             <button onClick={() => navigate('/signin')} className="h-14 rounded-xl bg-sand-500 px-8 font-extrabold tracking-wide text-charcoal-950 hover:bg-sand-400">TRY DEMO</button>
             <button onClick={register} className="h-14 rounded-xl bg-white/10 px-8 font-extrabold tracking-wide ring-2 ring-white/40 hover:bg-white/20">REGISTER LIVESTOCK</button>

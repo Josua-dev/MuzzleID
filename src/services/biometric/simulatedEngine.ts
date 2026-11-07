@@ -38,11 +38,11 @@ export class SimulatedMuzzleEngine implements BiometricEngine {
     const status = (s: number): QualityCheck['status'] => (s >= 0.7 ? 'good' : s >= 0.45 ? 'fair' : 'poor');
     const checks: QualityCheck[] = [
       { key: 'lighting', label: 'Lighting', score: lightScore, status: status(lightScore), simulated: false,
-        message: lightScore >= 0.7 ? 'Good light' : brightness < 60 ? 'Too dark — face the light' : 'Too bright — avoid direct glare' },
+        message: lightScore >= 0.7 ? 'Good light' : brightness < 60 ? 'Too dark, face the light' : 'Too bright, avoid direct glare' },
       { key: 'blur', label: 'Sharpness', score: blurScore, status: status(blurScore), simulated: false,
-        message: blurScore >= 0.7 ? 'Sharp' : 'Slightly blurred — hold steady' },
+        message: blurScore >= 0.7 ? 'Sharp' : 'Slightly blurred, hold steady' },
       { key: 'visibility', label: 'Muzzle visible', score: visScore, status: status(visScore), simulated: true,
-        message: visScore >= 0.7 ? 'Muzzle pattern visible' : 'Move closer — fill the oval' },
+        message: visScore >= 0.7 ? 'Muzzle pattern visible' : 'Move closer, fill the oval' },
     ];
     const overall = (lightScore + blurScore + visScore) / 3;
     return { checks, overall, passed: checks.every((c) => c.status !== 'poor') };

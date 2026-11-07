@@ -117,7 +117,7 @@ export default function Scan() {
         <>
           <PageHeader title="Scanning…" />
           <ScanSequence image={probeImage} steps={['Scanning...', 'Pattern detected', 'Searching registered animals...']} stepMs={850} onDone={onSequenceDone} />
-          <p className="mt-3 text-center"><ProtoTag>Prototype — feature matching, not yet field-validated</ProtoTag></p>
+          <p className="mt-3 text-center"><ProtoTag>Prototype: feature matching, not yet field-validated</ProtoTag></p>
         </>
       )}
 
@@ -196,7 +196,7 @@ function ScanResult({ result, probeImage, onAgain }: { result: MatchResult; prob
         <div className="grid grid-cols-2 gap-2">
           <Button variant="outline" icon="eye" onClick={() => navigate(`/app/animal/${a.id}`)}>View record</Button>
           {isOwner
-            ? <Button icon="checkCircle" onClick={() => { markRecovered(user!, a.id, 'Recovered — identified by muzzle scan', online); toast('Marked as recovered'); }}>Mark recovered</Button>
+            ? <Button icon="checkCircle" onClick={() => { markRecovered(user!, a.id, 'Recovered, identified by muzzle scan', online); toast('Marked as recovered'); }}>Mark recovered</Button>
             : <Button variant="danger" icon="message" onClick={() => setContact(true)}>Contact owner</Button>}
         </div>
         <Button full variant="ghost" icon="refresh" onClick={onAgain}>Scan another animal</Button>
@@ -256,7 +256,7 @@ function ScanResult({ result, probeImage, onAgain }: { result: MatchResult; prob
       {isOwner && !result.simulated && !angleSaved && angles < MAX_ANGLES && (
         <Button full variant="outline" icon="plus" onClick={async () => {
           const t = await biometrics().extractTemplate(probeImage);
-          if (addMuzzleAngle(user!, a.id, probeImage, t, online)) { setAngleSaved(true); toast('Angle saved — future scans from this side will match more easily'); }
+          if (addMuzzleAngle(user!, a.id, probeImage, t, online)) { setAngleSaved(true); toast('Angle saved. Future scans from this side will match more easily'); }
         }}>Save this angle to improve matching ({angles}/{MAX_ANGLES})</Button>
       )}
       <Button full variant="outline" icon="refresh" onClick={onAgain}>Scan again</Button>
@@ -292,7 +292,7 @@ function OfflineScan() {
       </div>
       {picked && (
         <div className="mt-4 rounded-2xl bg-sand-50 p-4 ring-2 ring-sand-400/60">
-          <p className="text-xs font-extrabold uppercase tracking-widest text-sand-700">Local record — not biometrically verified</p>
+          <p className="text-xs font-extrabold uppercase tracking-widest text-sand-700">Local record, not biometrically verified</p>
           {(picked.status === 'STOLEN' || picked.status === 'MISSING') && <p className="mt-2 rounded-xl bg-red-600 px-3 py-2 text-sm font-bold text-white">This record is reported {picked.status.toLowerCase()} (as of last sync).</p>}
           <p className="mt-2 text-sm text-charcoal-700">Confirm the identity with a muzzle scan when you are back online.</p>
           <Button full className="mt-3" icon="eye" onClick={() => navigate(`/app/animal/${picked.id}`)}>Open record</Button>

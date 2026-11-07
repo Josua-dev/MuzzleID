@@ -25,7 +25,7 @@ export default function Profile() {
 
   const toggleOffline = () => {
     setUI({ simulateOffline: !ui.simulateOffline });
-    toast(ui.simulateOffline ? 'Connection restored' : 'Offline mode on — no network will be used', ui.simulateOffline ? 'ok' : 'warn');
+    toast(ui.simulateOffline ? 'Connection restored' : 'Offline mode on. No network will be used', ui.simulateOffline ? 'ok' : 'warn');
   };
 
   return (

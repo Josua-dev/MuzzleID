@@ -95,7 +95,7 @@ export default function Transfer() {
           </div>
           <p className="text-sm font-semibold text-charcoal-700">2. Buyer details</p>
           <Select label="MuzzleID user account" hint="Optional" value={buyer.userId} onChange={(e) => pickAccount(e.target.value)}
-            options={[{ value: '', label: 'Not selected — enter details' }, ...data.farmers.map((u) => ({ value: u.id, label: `${u.full_name} (${u.phone})` }))]} />
+            options={[{ value: '', label: 'Not selected, enter details' }, ...data.farmers.map((u) => ({ value: u.id, label: `${u.full_name} (${u.phone})` }))]} />
           <Input label="Buyer phone" type="tel" value={buyer.phone} onChange={(e) => setBuyer({ ...buyer, phone: e.target.value, userId: '' })} />
           <Input label="Buyer name" value={buyer.name} onChange={(e) => setBuyer({ ...buyer, name: e.target.value })} />
           {linked ? (

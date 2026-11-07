@@ -103,7 +103,7 @@ export default function RegisterAnimal() {
     const a = registerAnimal(user!, info, { muzzleImage: capture!.image, photo, template: dup.template, online: true, extras: captures.slice(1).map((c, i) => ({ image: c.image, template: dup.templates[i + 1] })) });
     setDup(null);
     setCreated(a);
-    toast('Registered — flagged for duplicate review', 'warn');
+    toast('Registered, flagged for duplicate review', 'warn');
   };
 
   useEffect(() => { window.scrollTo(0, 0); }, [step]);
@@ -181,7 +181,7 @@ export default function RegisterAnimal() {
           {!seqDone ? (
             <>
               <ScanSequence image={capture.image} steps={['Detecting muzzle...', 'Extracting pattern...', 'Checking registration records...', 'Creating biometric identity...']} onDone={finishSequence} />
-              <p className="text-center"><ProtoTag>Prototype — feature matching, not yet field-validated</ProtoTag></p>
+              <p className="text-center"><ProtoTag>Prototype: feature matching, not yet field-validated</ProtoTag></p>
             </>
           ) : dup && dupAnimal ? (
             <div className="rounded-3xl bg-amber-50 p-5 ring-2 ring-amber-400">

@@ -87,7 +87,7 @@ export function registerAnimal(actor: User, input: RegisterInput, opts: {
       id: ownId, animal_id: id, owner_id: actor.id, owner_name: actor.full_name, owner_phone: actor.phone,
       farm: input.farm, region: input.region, start_date: t,
     });
-    move(d, { animal_id: id, event: 'REGISTERED', description: online ? 'Muzzle identity enrolled' : 'Captured offline — awaiting sync', location: `${input.farm}, ${input.region}`, actor_name: actor.full_name });
+    move(d, { animal_id: id, event: 'REGISTERED', description: online ? 'Muzzle identity enrolled' : 'Captured offline, awaiting sync', location: `${input.farm}, ${input.region}`, actor_name: actor.full_name });
     audit(d, actor, online ? 'ANIMAL_REGISTERED' : 'ANIMAL_CAPTURED_OFFLINE', muzzle_id, `${input.breed}, ${input.sex}, tag ${created.ear_tag}`);
     enqueue(d, online, 'REGISTER_ANIMAL', id, `Register ${input.breed} (tag ${created.ear_tag})`, [
       { table: 'animals', id }, { table: 'biometrics', id: bioId }, ...extraIds.map((x) => ({ table: 'biometrics' as const, id: x })), { table: 'ownership', id: ownId },
@@ -261,7 +261,7 @@ export function contactOwner(actor: User, animalId: string, message: string, cal
   mutate((d) => {
     const a = getAnimal(d, animalId);
     if (!a) return;
-    notify(d, a.owner_id, { kind: 'CONTACT', title: `Message about ${a.muzzle_id}`, body: `${actor.full_name}${actor.organisation ? ` (${actor.organisation})` : ''}: “${message}” — Call back: ${callbackPhone}`, animal_id: a.id });
+    notify(d, a.owner_id, { kind: 'CONTACT', title: `Message about ${a.muzzle_id}`, body: `${actor.full_name}${actor.organisation ? ` (${actor.organisation})` : ''}: “${message}”. Call back: ${callbackPhone}`, animal_id: a.id });
     audit(d, actor, 'OWNER_CONTACTED', a.muzzle_id, 'Message relayed via MuzzleID; owner phone not disclosed');
   });
 }

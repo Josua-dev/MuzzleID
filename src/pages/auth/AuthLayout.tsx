@@ -11,7 +11,7 @@ export function AuthLayout({ title, subtitle, children }: { title: string; subti
         <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/40 to-transparent" />
         <div className="absolute bottom-10 left-10 right-10 text-white">
           <h2 className="text-4xl font-extrabold leading-tight">Every Animal Has an Identity.</h2>
-          <p className="mt-2 text-white/75">Livestock digital identity and traceability — built for farms with little or no signal.</p>
+          <p className="mt-2 text-white/75">Livestock identity and traceability for farms with little or no signal.</p>
         </div>
       </aside>
       <div className="mx-auto w-full max-w-md px-5 py-8">

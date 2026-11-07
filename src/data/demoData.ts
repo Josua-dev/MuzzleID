@@ -110,9 +110,9 @@ export function buildDemoDB(): DB {
     if (ago > 120) addVacc(a.id, Math.max(8, ago - 100), 'Lumpy Skin Disease', '1 ml SC', 300);
   }
   addHealth('a_238', 21, 'EXAMINATION', 'General health examination', 'Body condition score 3.5/5. No abnormalities found.');
-  addHealth('a_238', 18, 'TEST_NOTE', 'Brucellosis test — negative', 'Blood sample taken; result recorded from paper certificate (demo).');
+  addHealth('a_238', 18, 'TEST_NOTE', 'Brucellosis test: negative', 'Blood sample taken; result recorded from paper certificate (demo).');
   addHealth('a_177', 6, 'TREATMENT', 'Treatment for tick-borne infection', 'Mild fever observed. Follow-up in 7 days.', 'Oxytetracycline LA');
-  addHealth('a_488', 4, 'EXAMINATION', 'Lameness check — hind left', 'Monitor; re-examine next visit.');
+  addHealth('a_488', 4, 'EXAMINATION', 'Lameness check, hind left', 'Monitor; re-examine next visit.');
   addHealth('a_156', 95, 'TREATMENT', 'Wound treatment after recovery', 'Minor abrasions on flank, cleaned and treated.', 'Topical antiseptic spray');
 
   // Recovered history for a_156
@@ -124,7 +124,7 @@ export function buildDemoDB(): DB {
     { id: 'tr_263', animal_id: 'a_263', type: 'MISSING', reported_at: daysAgo(5, 8), last_seen_date: daysAgo(6, 17), last_seen_location: 'Otjiwa Cattle Post, water point 2', description: 'Nguni cow, speckled, did not return from grazing.', status: 'OPEN', reported_by_id: 'u_farmer_2' },
     { id: 'tr_156', animal_id: 'a_156', type: 'MISSING', reported_at: daysAgo(102), last_seen_location: 'Seeis Post, camp 4', description: 'Red Afrikaner bull.', status: 'RESOLVED', reported_by_id: 'u_farmer_1', resolved_at: daysAgo(97) },
   ];
-  movements.push({ id: 'm_091_s', animal_id: 'a_091', event: 'REPORTED_STOLEN', description: 'Reported stolen — fence cut on northern boundary', location: 'Omuramba Farm, Omaheke', actor_name: 'Petrus Haufiku', date: daysAgo(12, 7) });
+  movements.push({ id: 'm_091_s', animal_id: 'a_091', event: 'REPORTED_STOLEN', description: 'Reported stolen: fence cut on northern boundary', location: 'Omuramba Farm, Omaheke', actor_name: 'Petrus Haufiku', date: daysAgo(12, 7) });
   movements.push({ id: 'm_263_m', animal_id: 'a_263', event: 'REPORTED_MISSING', description: 'Did not return from grazing', location: 'Otjiwa Cattle Post, Otjozondjupa', actor_name: 'Maria Kandjii', date: daysAgo(5, 8) });
 
   const transfers: TransferRequest[] = [

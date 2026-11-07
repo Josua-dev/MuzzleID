@@ -33,7 +33,7 @@ async function enrolPending(item: OfflineSyncQueueItem) {
     m.nextSequence += 1;
     m.animals = m.animals.map((a) => (a.id === animal.id ? { ...a, muzzle_id: newId, sync_state: 'SYNCED', updated_at: nowIso() } : a));
     m.biometrics = m.biometrics.map((b) => { const t = templates.get(b.id); return t ? { ...b, embedding_reference: t.reference, model_version: t.modelVersion, enrollment_quality: t.quality } : b; });
-    m.movements.push({ id: uid('mov'), animal_id: animal.id, event: 'REGISTERED', description: `Synced — muzzle identity enrolled as ${newId}`, actor_name: 'MuzzleID sync', date: nowIso() });
+    m.movements.push({ id: uid('mov'), animal_id: animal.id, event: 'REGISTERED', description: `Synced: muzzle identity enrolled as ${newId}`, actor_name: 'MuzzleID sync', date: nowIso() });
     m.audit.unshift({ id: uid('log'), actor_id: 'system', actor_name: 'MuzzleID sync', actor_role: 'SYSTEM', action: 'ANIMAL_REGISTERED', target: newId, details: `Synced from device (was ${animal.muzzle_id})`, created_at: nowIso() });
     if (dup.matched && dup.animalId) {
       const other = m.animals.find((a) => a.id === dup.animalId);

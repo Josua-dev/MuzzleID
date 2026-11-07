@@ -10,7 +10,7 @@ import { rules, visibilityFor } from '../lib/permissions';
 import { navigate } from '../lib/router';
 import type { HealthRecord, HealthState } from '../types/models';
 
-const VACCINES = ['Anthrax & Blackquarter', 'Lumpy Skin Disease', 'Botulism', 'Brucellosis (S19)', 'Pasteurella', 'Lung sickness (CBPP) — where applicable', 'Other'];
+const VACCINES = ['Anthrax & Blackquarter', 'Lumpy Skin Disease', 'Botulism', 'Brucellosis (S19)', 'Pasteurella', 'Lung sickness (CBPP), where applicable', 'Other'];
 const today = () => new Date().toISOString().slice(0, 10);
 
 export default function AddHealthRecord({ id }: { id: string }) {

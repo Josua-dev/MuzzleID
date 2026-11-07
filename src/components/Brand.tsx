@@ -22,7 +22,7 @@ export function Logo({ light, className, tagline }: { light?: boolean; className
         <div className={cn('text-lg font-extrabold tracking-tight', light ? 'text-white' : 'text-charcoal-950')}>
           Muzzle<span className={light ? 'text-sand-400' : 'text-forest-700'}>ID</span>
         </div>
-        {tagline && <div className={cn('mt-1 text-[11px] font-medium', light ? 'text-white/70' : 'text-charcoal-500')}>Every Animal Has an Identity.</div>}
+        {tagline && <div className={cn('mt-1 text-[11px] font-medium', light ? 'text-white/70' : 'text-charcoal-500')}>Livestock identity and traceability</div>}
       </div>
     </div>
   );

@@ -182,7 +182,7 @@ export default function AnimalProfile({ id }: { id: string }) {
                       <div className="text-sm">
                         <p className="font-bold">{o.owner_name}{!o.end_date && <span className="ml-2 rounded-full bg-forest-100 px-2 py-0.5 text-[11px] text-forest-800">Current</span>}</p>
                         <p className="text-charcoal-500">{o.farm}, {o.region}</p>
-                        <p className="text-xs text-charcoal-500">{fmtDate(o.start_date)} — {o.end_date ? fmtDate(o.end_date) : 'present'}</p>
+                        <p className="text-xs text-charcoal-500">{fmtDate(o.start_date)} to {o.end_date ? fmtDate(o.end_date) : 'present'}</p>
                       </div>
                     </li>
                   ))}
