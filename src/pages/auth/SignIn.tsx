@@ -11,7 +11,7 @@ const DEMOS: { id: string; role: string; name: string; desc: string; icon: IconN
   { id: DEMO_ACCOUNTS.FARMER, role: 'Farmer', name: 'Petrus Haufiku', desc: 'Omuramba Farm · Omaheke', icon: 'cow', cls: 'bg-forest-800 text-white' },
   { id: DEMO_ACCOUNTS.VET, role: 'Veterinary', name: 'Dr. Selma Nangolo', desc: 'Add vaccinations & treatments', icon: 'stethoscope', cls: 'bg-forest-100 text-forest-900' },
   { id: DEMO_ACCOUNTS.VERIFIER, role: 'Verification', name: 'Linus Tjiramba', desc: 'Check ownership & theft status', icon: 'shieldCheck', cls: 'bg-sand-100 text-sand-700' },
-  { id: DEMO_ACCOUNTS.ADMIN, role: 'Admin', name: 'MuzzleID Admin', desc: 'Statistics, users, reports, logs', icon: 'chart', cls: 'bg-charcoal-900 text-white' },
+  { id: DEMO_ACCOUNTS.ADMIN, role: 'Admin', name: 'OwaMuzzle Admin', desc: 'Statistics, users, reports, logs', icon: 'chart', cls: 'bg-charcoal-900 text-white' },
 ];
 
 export default function SignIn() {

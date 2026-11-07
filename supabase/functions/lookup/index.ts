@@ -1,4 +1,4 @@
-// Supabase Edge Function: MuzzleID text-channel lookup (WhatsApp, SMS, USSD).
+// Supabase Edge Function: OwaMuzzle text-channel lookup (WhatsApp, SMS, USSD).
 //   deploy:  supabase functions deploy lookup --no-verify-jwt
 //   routes:  ?channel=whatsapp            Meta WhatsApp Cloud API webhook (GET verify + POST messages)
 //            ?channel=sms&token=...       generic inbound-SMS gateway webhook
@@ -104,6 +104,6 @@ Deno.serve(async (req) => {
     return text('unknown channel', 404);
   } catch (e) {
     console.error('lookup error', e);
-    return channel === 'ussd' ? text('END Service busy. Try again shortly.') : channel === 'sms' ? text('MuzzleID is busy. Please try again shortly.') : text('error', 500);
+    return channel === 'ussd' ? text('END Service busy. Try again shortly.') : channel === 'sms' ? text('OwaMuzzle is busy. Please try again shortly.') : text('error', 500);
   }
 });

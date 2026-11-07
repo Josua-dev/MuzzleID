@@ -46,20 +46,20 @@ check('SMS never leaks full owner name', !r.body.includes('Josua') && !r.body.in
 check('SMS says it is an ID check only', /scan/i.test(r.body));
 r = await sms('mz na 238'); check('SMS tolerant parsing ("mz na 238")', r.body.includes('MZ-NA-000238'), r.body);
 r = await sms('MZ-NA-000091'); check('SMS stolen animal warns DO NOT BUY', r.body.startsWith('ALERT') && r.body.includes('DO NOT BUY') && r.body.includes('12 Oct 2026'), r.body);
-r = await sms('MZ-NA-999999'); check('SMS unknown id: not-found, no accusation', r.body.includes('No MuzzleID record') && r.body.includes('does not prove'), r.body);
+r = await sms('MZ-NA-999999'); check('SMS unknown id: not-found, no accusation', r.body.includes('No OwaMuzzle record') && r.body.includes('does not prove'), r.body);
 r = await sms('TAG NA-0238'); check('SMS lookup by ear tag', r.body.includes('MZ-NA-000238'), r.body);
 r = await sms('TAG NA-DUP'); check('SMS duplicate ear tag asks for full ID', r.body.includes('2 animals share tag'), r.body);
 r = await sms('banana'); check('SMS gibberish gets help', r.body.includes('Not understood'), r.body);
-r = await sms('help'); check('SMS help', r.body.includes('MuzzleID check'), r.body);
+r = await sms('help'); check('SMS help', r.body.includes('OwaMuzzle check'), r.body);
 r = await sms('MZ-NA-000238', '+264810000001', 'wrong'); check('SMS wrong token rejected', r.status === 403);
 
 // --- USSD
-check('USSD main menu', (await ussd('')).startsWith('CON MuzzleID'));
-check('USSD asks for ID', (await ussd('1')).startsWith('CON Enter MuzzleID'));
+check('USSD main menu', (await ussd('')).startsWith('CON OwaMuzzle'));
+check('USSD asks for ID', (await ussd('1')).startsWith('CON Enter Muzzle ID'));
 let u = await ussd('1*MZ-NA-000091'); check('USSD stolen result ends session, <=182 chars', u.startsWith('END ALERT') && u.length <= 182, u);
 u = await ussd('1*MZ-NA-000238'); check('USSD active result fits one USSD screen', u.startsWith('END MZ-NA-000238') && u.length <= 182, `${u.length}: ${u}`);
 u = await ussd('2*NA-0238'); check('USSD ear-tag path', u.startsWith('END MZ-NA-000238'), u);
-check('USSD help', (await ussd('3')).startsWith('END MuzzleID check'));
+check('USSD help', (await ussd('3')).startsWith('END OwaMuzzle check'));
 
 // --- WhatsApp
 let g = await fetch(`${base}?channel=whatsapp&hub.mode=subscribe&hub.verify_token=vt&hub.challenge=abc123`);

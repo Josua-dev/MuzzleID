@@ -1,6 +1,6 @@
 {
-  "name": "MuzzleID | Livestock identity and traceability",
-  "short_name": "MuzzleID",
+  "name": "OwaMuzzle | Livestock identity and traceability",
+  "short_name": "OwaMuzzle",
   "description": "Livestock digital identity and traceability for farmers, built for low-connectivity areas.",
   "start_url": "/#/app",
   "scope": "/",

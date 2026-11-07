@@ -8,7 +8,7 @@ import { useSession } from '../hooks/useSession';
 
 const STEPS: { n: string; title: string; body: string; icon: IconName }[] = [
   { n: '1', title: 'Capture', body: 'Take a clear muzzle photo.', icon: 'camera' },
-  { n: '2', title: 'Identify', body: 'MuzzleID analyses the muzzle pattern.', icon: 'fingerprint' },
+  { n: '2', title: 'Identify', body: 'OwaMuzzle analyses the muzzle pattern.', icon: 'fingerprint' },
   { n: '3', title: 'Register', body: "Create the animal's digital record.", icon: 'database' },
   { n: '4', title: 'Verify', body: 'Scan later to retrieve and verify the animal.', icon: 'shieldCheck' },
 ];
@@ -52,7 +52,7 @@ function Comparison() {
           </li>
         ))}
       </ul>
-      <p className="px-4 pb-3 text-xs text-charcoal-500">MuzzleID does not replace legally required livestock identification or branding. It is an additional digital identification and verification layer.</p>
+      <p className="px-4 pb-3 text-xs text-charcoal-500">OwaMuzzle does not replace legally required livestock identification or branding. It is an additional digital identification and verification layer.</p>
     </div>
   );
 }
@@ -147,7 +147,7 @@ export default function Landing() {
       {/* Comparison */}
       <section className="mx-auto max-w-4xl px-5 py-16">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-forest-700">Compare</p>
-        <h2 className="mb-6 mt-2 text-3xl font-extrabold tracking-tight">Traditional identification vs MuzzleID</h2>
+        <h2 className="mb-6 mt-2 text-3xl font-extrabold tracking-tight">Traditional identification vs OwaMuzzle</h2>
         <Comparison />
       </section>
 
@@ -197,7 +197,7 @@ export default function Landing() {
       <footer className="border-t border-charcoal-900/8 bg-surface">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-charcoal-500 md:flex-row md:items-center md:justify-between">
           <Logo tagline />
-          <p className="max-w-xl text-xs">Prototype. Biometric matching in this version is simulated for demonstration. MuzzleID is an additional digital identification layer and does not replace legally required livestock identification. No government, police, veterinary-authority or insurer integrations are implied. All demo people, farms and records are fictional.</p>
+          <p className="max-w-xl text-xs">Prototype. Biometric matching in this version is simulated for demonstration. OwaMuzzle is an additional digital identification layer and does not replace legally required livestock identification. No government, police, veterinary-authority or insurer integrations are implied. All demo people, farms and records are fictional.</p>
         </div>
       </footer>
     </div>

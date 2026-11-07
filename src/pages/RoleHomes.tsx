@@ -22,7 +22,7 @@ function QuickSearch() {
   return (
     <form onSubmit={(e) => { e.preventDefault(); navigate(`/app/cattle?q=${encodeURIComponent(q)}`); }} className="relative mt-3">
       <Icon name="search" className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-charcoal-400" />
-      <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search MuzzleID or ear tag" className="h-14 w-full rounded-2xl border-2 border-charcoal-900/10 bg-white pl-12 pr-4 focus:border-forest-600 focus:outline-none" />
+      <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search Muzzle ID or ear tag" className="h-14 w-full rounded-2xl border-2 border-charcoal-900/10 bg-white pl-12 pr-4 focus:border-forest-600 focus:outline-none" />
     </form>
   );
 }

@@ -1,4 +1,4 @@
-// Optional Supabase backend. When VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY are not set, MuzzleID runs in
+// Optional Supabase backend. When VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY are not set, OwaMuzzle runs in
 // local Demo Mode: all data lives on the device and nothing is sent to a server.
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { env } from '../lib/env';

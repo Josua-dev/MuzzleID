@@ -13,7 +13,7 @@ import { seeded } from '../../lib/utils';
  *   is a simulated value.
  */
 export class SimulatedMuzzleEngine implements BiometricEngine {
-  readonly name = 'MuzzleID Simulator';
+  readonly name = 'OwaMuzzle Simulator';
   readonly modelVersion = 'sim-0.3 (simulated)';
   readonly simulated = true;
   readonly requiresNetwork = true; // modelled as server-side matching, to keep offline behaviour honest

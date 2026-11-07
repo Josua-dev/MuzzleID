@@ -20,7 +20,7 @@ export function Logo({ light, className, tagline }: { light?: boolean; className
       <LogoMark />
       <div className="leading-none">
         <div className={cn('text-lg font-extrabold tracking-tight', light ? 'text-white' : 'text-charcoal-950')}>
-          Muzzle<span className={light ? 'text-sand-400' : 'text-forest-700'}>ID</span>
+          Owa<span className={light ? 'text-sand-400' : 'text-forest-700'}>Muzzle</span>
         </div>
         {tagline && <div className={cn('mt-1 text-[11px] font-medium', light ? 'text-white/70' : 'text-charcoal-500')}>Livestock identity and traceability</div>}
       </div>
@@ -29,7 +29,7 @@ export function Logo({ light, className, tagline }: { light?: boolean; className
 }
 
 /**
- * Seeded visualisation of a muzzle "bead & ridge" pattern for a given MuzzleID.
+ * Seeded visualisation of a muzzle "bead & ridge" pattern for a given Muzzle ID.
  * Illustrative only — it is not the stored biometric template.
  */
 export function MuzzlePattern({ seed, className, dark = true }: { seed: string; className?: string; dark?: boolean }) {

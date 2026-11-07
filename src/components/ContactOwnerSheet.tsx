@@ -4,7 +4,7 @@ import { Icon } from './ui/Icon';
 import { contactOwner } from '../services/actions';
 import type { Animal, User } from '../types/models';
 
-/** Privacy-preserving contact: the message is relayed via MuzzleID; the owner's phone number is not shown. */
+/** Privacy-preserving contact: the message is relayed via OwaMuzzle; the owner's phone number is not shown. */
 export function ContactOwnerSheet({ open, onClose, animal, user }: { open: boolean; onClose: () => void; animal: Animal; user: User }) {
   const alert = animal.status === 'STOLEN' || animal.status === 'MISSING';
   const [msg, setMsg] = useState(alert ? `I have scanned an animal matching ${animal.muzzle_id}. Please contact me.` : `Query about ${animal.muzzle_id}.`);
@@ -13,7 +13,7 @@ export function ContactOwnerSheet({ open, onClose, animal, user }: { open: boole
     <Sheet open={open} onClose={onClose} title="Contact owner">
       <div className="mb-4 flex gap-3 rounded-2xl bg-forest-50 p-3 text-sm text-forest-900">
         <Icon name="lock" size={18} className="mt-0.5 shrink-0" />
-        <p>Your message is delivered through MuzzleID. The owner's phone number stays private; they can call you back.</p>
+        <p>Your message is delivered through OwaMuzzle. The owner's phone number stays private; they can call you back.</p>
       </div>
       <div className="space-y-3">
         <TextArea label="Message" value={msg} onChange={(e) => setMsg(e.target.value)} />

@@ -1,4 +1,4 @@
--- MuzzleID — Supabase schema (Postgres) with Row Level Security.
+-- OwaMuzzle — Supabase schema (Postgres) with Row Level Security.
 -- Run in the Supabase SQL editor. IDs are text so records created offline on a device keep their IDs on sync.
 
 -- ============ Helpers ============

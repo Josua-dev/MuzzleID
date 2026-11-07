@@ -1,4 +1,4 @@
-// MuzzleID text-channel lookup core (SMS, WhatsApp, USSD). Pure TypeScript with no platform APIs, so the same
+// OwaMuzzle text-channel lookup core (SMS, WhatsApp, USSD). Pure TypeScript with no platform APIs, so the same
 // code runs in the Supabase Edge Function, in the in-app phone simulator and in the tests.
 //
 // What a text lookup can and cannot prove: it confirms what the REGISTER says about an ID someone typed.
@@ -62,19 +62,19 @@ export function gsmSafe(s: string): string {
 
 const clip = (s: string, n: number) => (s.length <= n ? s : s.slice(0, n - 1).trimEnd() + '.');
 
-export const HELP_TEXT = 'MuzzleID check: send an ID like MZ-NA-000238, or TAG NA-0238. Shows register status only.';
+export const HELP_TEXT = 'OwaMuzzle check: send an ID like MZ-NA-000238, or TAG NA-0238. Shows register status only.';
 
 function describe(r: LookupRecord, ch: Channel): string {
   const base = `${r.muzzle_id} ${r.breed} ${r.sex === 'Female' ? 'F' : r.sex === 'Male' ? 'M' : r.sex}, ${r.region}.`;
   const owner = ownerInitials(r.owner_name);
   const reg = fmtMonth(r.registered_at);
-  const tail = ch === 'whatsapp' ? '\nThis confirms the REGISTER entry only. To confirm the animal in front of you, scan its muzzle in the MuzzleID app.' : ' ID check only: confirm animal by muzzle scan.';
+  const tail = ch === 'whatsapp' ? '\nThis confirms the REGISTER entry only. To confirm the animal in front of you, scan its muzzle in the OwaMuzzle app.' : ' ID check only: confirm animal by muzzle scan.';
   if (r.status === 'STOLEN' || r.status === 'MISSING') {
     const when = fmtDay(r.open_report_at);
     const what = r.status === 'STOLEN' ? 'REPORTED STOLEN' : 'REPORTED MISSING';
     return `ALERT ${r.muzzle_id}: ${what}${when ? ' ' + when : ''}. DO NOT BUY. Tell the police or the registered owner.`;
   }
-  if (r.status === 'TRANSFER_PENDING') return `${base} Ownership transfer pending: seller and buyer must both confirm in MuzzleID.${tail}`;
+  if (r.status === 'TRANSFER_PENDING') return `${base} Ownership transfer pending: seller and buyer must both confirm in OwaMuzzle.${tail}`;
   return `${base}${owner ? ' Owner ' + owner.replace(/\.?$/, '.') : ''}${reg ? ' Reg ' + reg + '.' : ''} ACTIVE, no theft report.${tail}`;
 }
 
@@ -84,9 +84,9 @@ export function formatReply(q: ParsedQuery, records: LookupRecord[], ch: Channel
   if (q.kind === 'help') out = HELP_TEXT;
   else if (q.kind === 'invalid') out = `Not understood. ${HELP_TEXT}`;
   else if (records.length === 0) {
-    out = `No MuzzleID record for ${q.value}. That does not prove the animal is legal or stolen. Ask the seller for its MuzzleID and scan the muzzle.`;
+    out = `No OwaMuzzle record for ${q.value}. That does not prove the animal is legal or stolen. Ask the seller for its Muzzle ID and scan the muzzle.`;
   } else if (records.length > 1) {
-    out = `${records.length} animals share tag ${q.value}. Send the full MuzzleID (MZ-NA-xxxxxx) from the animal's card.`;
+    out = `${records.length} animals share tag ${q.value}. Send the full Muzzle ID (MZ-NA-xxxxxx) from the animal's card.`;
   } else out = describe(records[0], ch);
   out = gsmSafe(out);
   const limit = ch === 'sms' ? 320 : ch === 'ussd' ? 170 : 1000; // sms: 2 concatenated segments at most
@@ -100,11 +100,11 @@ export interface UssdStep { con: boolean; reply?: string; query?: ParsedQuery }
 
 export function ussdRoute(text: string): UssdStep {
   const parts = (text ?? '').split('*').map((p) => p.trim());
-  if (parts.length === 1 && parts[0] === '') return { con: true, reply: 'MuzzleID\n1. Check animal by ID\n2. Check by ear tag\n3. Help' };
+  if (parts.length === 1 && parts[0] === '') return { con: true, reply: 'OwaMuzzle\n1. Check animal by ID\n2. Check by ear tag\n3. Help' };
   const [choice, entry] = parts;
   if (choice === '3') return { con: false, reply: gsmSafe(HELP_TEXT) };
   if (choice === '1' || choice === '2') {
-    if (entry === undefined) return { con: true, reply: choice === '1' ? 'Enter MuzzleID (e.g. MZ-NA-000238):' : 'Enter ear tag (e.g. NA-0238):' };
+    if (entry === undefined) return { con: true, reply: choice === '1' ? 'Enter Muzzle ID (e.g. MZ-NA-000238):' : 'Enter ear tag (e.g. NA-0238):' };
     const q = choice === '1' ? parseQuery(entry) : parseQuery(/^tag/i.test(entry) ? entry : `TAG ${entry}`);
     return q.kind === 'muzzle' || q.kind === 'tag' ? { con: false, query: q } : { con: false, reply: 'Not understood. Dial again and enter an ID like MZ-NA-000238.' };
   }

@@ -62,7 +62,7 @@ export default function ReportMissing() {
           <Input label="Last seen (place)" placeholder={`${a.farm}, ${a.region}`} value={f.last_seen_location} onChange={(e) => setF({ ...f, last_seen_location: e.target.value })} />
           <TextArea label="Description" hint="Optional" placeholder="Markings, circumstances, fence damage…" value={f.description} onChange={(e) => setF({ ...f, description: e.target.value })} />
           <div className="rounded-2xl bg-surface p-3 text-xs text-charcoal-500">
-            Once reported, any MuzzleID scan of this animal shows a red alert to the person scanning. This report is recorded in MuzzleID only. Please also report livestock theft to the police as you normally would.
+            Once reported, any OwaMuzzle scan of this animal shows a red alert to the person scanning. This report is recorded in OwaMuzzle only. Please also report livestock theft to the police as you normally would.
           </div>
           <Button full size="xl" variant={type === 'STOLEN' ? 'danger' : 'primary'} icon="flag" onClick={submit}>Report {type.toLowerCase()}</Button>
         </div>

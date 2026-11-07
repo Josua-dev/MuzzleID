@@ -17,7 +17,7 @@ const SHORTLIST = 12;
  * Quality lighting/blur checks and the presenter "demo hint" reuse the simulator.
  */
 export class FeatureMatchEngine implements BiometricEngine {
-  readonly name = 'MuzzleID Hybrid (AI + feature matcher)';
+  readonly name = 'OwaMuzzle Hybrid (AI + feature matcher)';
   readonly modelVersion = 'dog-sift-2.0';
   readonly simulated = false;
   readonly requiresNetwork = true; // kept server-modelled so the offline queue behaves as before

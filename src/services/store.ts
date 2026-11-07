@@ -20,7 +20,7 @@ function createStore<T>(initial: T, persistKey?: string) {
         try {
           localStorage.setItem(persistKey, JSON.stringify(next));
         } catch (e) {
-          console.warn('[MuzzleID] Could not persist to device storage', e);
+          console.warn('[OwaMuzzle] Could not persist to device storage', e);
           window.dispatchEvent(new CustomEvent('muzzleid:storage-full'));
         }
       }

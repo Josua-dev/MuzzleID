@@ -21,8 +21,8 @@ function findLocal(q: ParsedQuery): LookupRecord[] {
 }
 
 const CHANNELS: { key: Channel; label: string; hint: string }[] = [
-  { key: 'sms', label: 'SMS', hint: 'Any phone. Text to the MuzzleID number.' },
-  { key: 'whatsapp', label: 'WhatsApp', hint: 'Message the MuzzleID WhatsApp number.' },
+  { key: 'sms', label: 'SMS', hint: 'Any phone. Text to the OwaMuzzle number.' },
+  { key: 'whatsapp', label: 'WhatsApp', hint: 'Message the OwaMuzzle WhatsApp number.' },
   { key: 'ussd', label: 'USSD', hint: 'Dial the short code. Works on any phone, no data.' },
 ];
 
@@ -71,7 +71,7 @@ export function VerifyBySms() {
     <div className="fade-up">
       <PageHeader title="Verify by SMS / WhatsApp / USSD" subtitle="For buyers, auctions and checkpoints without a smartphone" backTo="/app/scan" />
       <p className="mb-3 text-sm text-charcoal-700">
-        Anyone can text an animal's MuzzleID and get its register status. This simulator runs the same rules as the live service, on this device's data. <ProtoTag className="align-middle">Simulator: no real message is sent</ProtoTag>
+        Anyone can text an animal's Muzzle ID and get its register status. This simulator runs the same rules as the live service, on this device's data. <ProtoTag className="align-middle">Simulator: no real message is sent</ProtoTag>
       </p>
       <div className="mb-3 grid grid-cols-3 gap-2">
         {CHANNELS.map((c) => (
@@ -82,7 +82,7 @@ export function VerifyBySms() {
 
       <div className="mx-auto max-w-sm overflow-hidden rounded-[2rem] bg-charcoal-950 p-2 shadow-xl">
         <div className="flex h-[26rem] flex-col rounded-[1.5rem] bg-sand-50">
-          <div className="border-b border-charcoal-900/10 px-4 py-2 text-center text-sm font-bold">{channel === 'ussd' ? 'USSD session' : 'MuzzleID'}</div>
+          <div className="border-b border-charcoal-900/10 px-4 py-2 text-center text-sm font-bold">{channel === 'ussd' ? 'USSD session' : 'OwaMuzzle'}</div>
           <div className="flex-1 space-y-2 overflow-y-auto p-3">
             {msgs.length === 0 && <p className="mt-10 text-center text-sm text-charcoal-500">{channel === 'ussd' ? 'Press Dial to start.' : 'Send an ID such as MZ-NA-000238, or tap an example below.'}</p>}
             {msgs.map((m, i) => (

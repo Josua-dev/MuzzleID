@@ -1,7 +1,7 @@
 // Offline sync engine. Records captured without connectivity are stored on the device with
 // status PENDING. When connectivity returns, the queue is processed in order:
 //  1) pending registrations get biometric enrolment + duplicate check (server-side step, simulated)
-//  2) a permanent MuzzleID is assigned
+//  2) a permanent Muzzle ID is assigned
 //  3) rows are pushed to Supabase when configured
 import type { DB, OfflineSyncQueueItem } from '../types/models';
 import { dbStore, mutate, setUI, uiStore } from './store';
@@ -33,8 +33,8 @@ async function enrolPending(item: OfflineSyncQueueItem) {
     m.nextSequence += 1;
     m.animals = m.animals.map((a) => (a.id === animal.id ? { ...a, muzzle_id: newId, sync_state: 'SYNCED', updated_at: nowIso() } : a));
     m.biometrics = m.biometrics.map((b) => { const t = templates.get(b.id); return t ? { ...b, embedding_reference: t.reference, model_version: t.modelVersion, enrollment_quality: t.quality } : b; });
-    m.movements.push({ id: uid('mov'), animal_id: animal.id, event: 'REGISTERED', description: `Synced: muzzle identity enrolled as ${newId}`, actor_name: 'MuzzleID sync', date: nowIso() });
-    m.audit.unshift({ id: uid('log'), actor_id: 'system', actor_name: 'MuzzleID sync', actor_role: 'SYSTEM', action: 'ANIMAL_REGISTERED', target: newId, details: `Synced from device (was ${animal.muzzle_id})`, created_at: nowIso() });
+    m.movements.push({ id: uid('mov'), animal_id: animal.id, event: 'REGISTERED', description: `Synced: muzzle identity enrolled as ${newId}`, actor_name: 'OwaMuzzle sync', date: nowIso() });
+    m.audit.unshift({ id: uid('log'), actor_id: 'system', actor_name: 'OwaMuzzle sync', actor_role: 'SYSTEM', action: 'ANIMAL_REGISTERED', target: newId, details: `Synced from device (was ${animal.muzzle_id})`, created_at: nowIso() });
     if (dup.matched && dup.animalId) {
       const other = m.animals.find((a) => a.id === dup.animalId);
       m.notifications.unshift({ id: uid('ntf'), user_id: animal.owner_id, kind: 'ALERT', title: 'Possible duplicate registration', body: `${newId} closely matches existing record ${other?.muzzle_id} (simulated check). An administrator will review it.`, animal_id: animal.id, read: false, created_at: nowIso() });

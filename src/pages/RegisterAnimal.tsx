@@ -167,9 +167,9 @@ export default function RegisterAnimal() {
           <div className="rounded-2xl bg-white p-4 text-sm ring-1 ring-charcoal-900/8">
             <p className="font-bold">What happens next</p>
             <ol className="mt-2 list-decimal space-y-1 pl-5 text-charcoal-700">
-              <li>Connectivity returns → MuzzleID syncs automatically.</li>
+              <li>Connectivity returns → OwaMuzzle syncs automatically.</li>
               <li>Muzzle pattern is enrolled and checked against registered animals.</li>
-              <li>A permanent MuzzleID is issued (e.g. MZ-NA-000847).</li>
+              <li>A permanent Muzzle ID is issued (e.g. MZ-NA-000847).</li>
             </ol>
           </div>
           <Button full size="xl" iconRight="arrowRight" onClick={() => setStep(3)}>View record</Button>

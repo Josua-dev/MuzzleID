@@ -22,7 +22,7 @@ supabase functions deploy lookup --no-verify-jwt
 curl -X POST "https://<ref>.functions.supabase.co/lookup?channel=sms&token=<LOOKUP_TOKEN>" -d from=+264810000000 -d text=MZ-NA-000238
 curl -X POST "https://<ref>.functions.supabase.co/lookup?channel=sms&token=<LOOKUP_TOKEN>" -d from=+264810000000 -d text=MZ-NA-000091
 ```
-Expected: an ACTIVE reply, then `ALERT ... REPORTED STOLEN ... DO NOT BUY`. If you get "No MuzzleID record", the seed did not run.
+Expected: an ACTIVE reply, then `ALERT ... REPORTED STOLEN ... DO NOT BUY`. If you get "No OwaMuzzle record", the seed did not run.
 
 ## 4. WhatsApp (Meta Cloud API)
 1. developers.facebook.com > Create app > type **Business** > add the **WhatsApp** product.

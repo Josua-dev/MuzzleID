@@ -1,4 +1,4 @@
-/* MuzzleID service worker — offline app shell + runtime caching. */
+/* OwaMuzzle service worker — offline app shell + runtime caching. */
 const CACHE = 'muzzleid-v1';
 const SHELL = ['/', '/index.html', '/manifest.webmanifest', '/icons/icon-192.png', '/icons/icon-512.png',
   '/demo/hero.jpg', '/demo/muzzle.jpg', '/demo/muzzle-hero.jpg'];

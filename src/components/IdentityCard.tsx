@@ -14,7 +14,7 @@ export function IdentityCard({ animal, ownerName, verified = true }: { animal: A
       <div className="flex gap-4 p-5">
         <AnimalPhoto src={animal.photo_url} alt={animal.breed} className="h-32 w-28 shrink-0 rounded-2xl ring-2 ring-sand-400/60" />
         <div className="min-w-0 flex-1">
-          <p className="text-[10px] uppercase tracking-widest text-white/60">MuzzleID</p>
+          <p className="text-[10px] uppercase tracking-widest text-white/60">Muzzle ID</p>
           <p className="font-mono text-xl font-bold tracking-tight text-sand-200">{animal.muzzle_id}</p>
           <dl className="mt-2 grid grid-cols-2 gap-x-3 gap-y-1.5 text-xs">
             <div className="col-span-2"><dt className="text-white/50">Owner</dt><dd className="truncate font-semibold">{ownerName}</dd></div>

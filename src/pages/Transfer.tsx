@@ -94,12 +94,12 @@ export default function Transfer() {
             <button onClick={() => setAnimalId('')} className="text-sm font-semibold text-forest-700">Change</button>
           </div>
           <p className="text-sm font-semibold text-charcoal-700">2. Buyer details</p>
-          <Select label="MuzzleID user account" hint="Optional" value={buyer.userId} onChange={(e) => pickAccount(e.target.value)}
+          <Select label="OwaMuzzle user account" hint="Optional" value={buyer.userId} onChange={(e) => pickAccount(e.target.value)}
             options={[{ value: '', label: 'Not selected, enter details' }, ...data.farmers.map((u) => ({ value: u.id, label: `${u.full_name} (${u.phone})` }))]} />
           <Input label="Buyer phone" type="tel" value={buyer.phone} onChange={(e) => setBuyer({ ...buyer, phone: e.target.value, userId: '' })} />
           <Input label="Buyer name" value={buyer.name} onChange={(e) => setBuyer({ ...buyer, name: e.target.value })} />
           {linked ? (
-            <p className="flex items-center gap-2 rounded-xl bg-forest-50 px-3 py-2.5 text-sm font-semibold text-forest-800"><Icon name="checkCircle" size={18} /> Linked to MuzzleID account: {linked.full_name}</p>
+            <p className="flex items-center gap-2 rounded-xl bg-forest-50 px-3 py-2.5 text-sm font-semibold text-forest-800"><Icon name="checkCircle" size={18} /> Linked to OwaMuzzle account: {linked.full_name}</p>
           ) : (
             <p className="rounded-xl bg-surface px-3 py-2.5 text-sm text-charcoal-500">Buyer has no linked account. They will confirm when they register with this phone number.</p>
           )}
@@ -139,7 +139,7 @@ function TransferActions({ t, compact }: { t: TransferRequest; compact?: boolean
   );
   return (
     <div className={cn('space-y-2', !compact && 'rounded-2xl bg-white p-4 ring-1 ring-charcoal-900/8')}>
-      {!compact && <p className="text-sm text-charcoal-700">{t.buyer_user_id ? 'Waiting for the buyer to accept in their MuzzleID app.' : 'The buyer has no MuzzleID account yet.'}</p>}
+      {!compact && <p className="text-sm text-charcoal-700">{t.buyer_user_id ? 'Waiting for the buyer to accept in their OwaMuzzle app.' : 'The buyer has no OwaMuzzle account yet.'}</p>}
       <div className="grid grid-cols-2 gap-2">
         <Button size="md" variant="outline" onClick={() => { closeTransfer(user!, t.id, 'CANCELLED', online); toast('Transfer cancelled', 'warn'); }}>Cancel</Button>
         {t.buyer_user_id ? (

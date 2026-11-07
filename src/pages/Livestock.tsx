@@ -37,12 +37,12 @@ export default function Livestock() {
 
   return (
     <div className="fade-up">
-      <PageHeader title={isFarmer ? 'My livestock' : isAdmin ? 'All livestock' : 'Find a record'} subtitle={isFarmer ? `${count('ALL')} animals` : searchOnly ? 'Search by MuzzleID or ear tag' : `${rows.length} registered animals`}
+      <PageHeader title={isFarmer ? 'My livestock' : isAdmin ? 'All livestock' : 'Find a record'} subtitle={isFarmer ? `${count('ALL')} animals` : searchOnly ? 'Search by Muzzle ID or ear tag' : `${rows.length} registered animals`}
         action={isFarmer ? <Button size="md" icon="plus" onClick={() => navigate('/app/register')}>Add</Button> : undefined} />
 
       <label className="relative block">
         <Icon name="search" className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-charcoal-400" />
-        <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search MuzzleID or ear tag"
+        <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search Muzzle ID or ear tag"
           className="h-14 w-full rounded-2xl border-2 border-charcoal-900/10 bg-white pl-12 pr-4 text-base focus:border-forest-600 focus:outline-none" />
       </label>
 
@@ -59,9 +59,9 @@ export default function Livestock() {
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         {searchOnly && q.trim().length < 2 ? (
-          <div className="sm:col-span-2"><EmptyState icon="lock" title="Search to view a record" body="For owner privacy, verification and veterinary users look up animals by MuzzleID or ear tag, or by scanning." action={<Button size="md" icon="scan" onClick={() => navigate('/app/scan')}>Scan instead</Button>} /></div>
+          <div className="sm:col-span-2"><EmptyState icon="lock" title="Search to view a record" body="For owner privacy, verification and veterinary users look up animals by Muzzle ID or ear tag, or by scanning." action={<Button size="md" icon="scan" onClick={() => navigate('/app/scan')}>Scan instead</Button>} /></div>
         ) : visible.length ? visible.map((r) => <AnimalCard key={r.a.id} animal={r.a} status={r.s} />) : (
-          <div className="sm:col-span-2"><EmptyState icon="cow" title="No animals found" body={q ? 'Try a different MuzzleID or ear tag.' : 'Nothing in this category.'} /></div>
+          <div className="sm:col-span-2"><EmptyState icon="cow" title="No animals found" body={q ? 'Try a different Muzzle ID or ear tag.' : 'Nothing in this category.'} /></div>
         )}
       </div>
     </div>

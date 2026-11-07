@@ -262,7 +262,7 @@ export function contactOwner(actor: User, animalId: string, message: string, cal
     const a = getAnimal(d, animalId);
     if (!a) return;
     notify(d, a.owner_id, { kind: 'CONTACT', title: `Message about ${a.muzzle_id}`, body: `${actor.full_name}${actor.organisation ? ` (${actor.organisation})` : ''}: “${message}”. Call back: ${callbackPhone}`, animal_id: a.id });
-    audit(d, actor, 'OWNER_CONTACTED', a.muzzle_id, 'Message relayed via MuzzleID; owner phone not disclosed');
+    audit(d, actor, 'OWNER_CONTACTED', a.muzzle_id, 'Message relayed via OwaMuzzle; owner phone not disclosed');
   });
 }
 

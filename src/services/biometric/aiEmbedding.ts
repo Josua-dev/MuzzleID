@@ -85,7 +85,7 @@ function loadModel() {
       status = 'ready';
       return { run: pipe, load: (u: string) => tf.RawImage.fromURL(u) };
     } catch (e) {
-      console.warn('[MuzzleID] AI model unavailable, using classical matcher only:', e);
+      console.warn('[OwaMuzzle] AI model unavailable, using classical matcher only:', e);
       status = 'unavailable';
       return null;
     }

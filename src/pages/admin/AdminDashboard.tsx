@@ -219,7 +219,7 @@ function Activity() {
   const shown = logs.filter((l) => !q || `${describe(l).text} ${l.actor_name} ${l.action} ${l.details ?? ''}`.toLowerCase().includes(q.toLowerCase())).slice(0, 100);
   return (
     <div className="space-y-3">
-      <Input placeholder="Filter by user, MuzzleID or action" value={q} onChange={(e) => setQ(e.target.value)} />
+      <Input placeholder="Filter by user, Muzzle ID or action" value={q} onChange={(e) => setQ(e.target.value)} />
       <Card className="overflow-x-auto"><ActivityTable logs={shown} /></Card>
       <p className="text-xs text-charcoal-500">Audit log: {logs.length} entries. Includes sign-ins, registrations, scans, health records, transfers, reports and admin actions.</p>
     </div>

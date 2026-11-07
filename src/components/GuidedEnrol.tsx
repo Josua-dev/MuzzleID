@@ -54,7 +54,7 @@ export function GuidedEnrol({ onDone, cta }: { onDone: (captures: CaptureResult[
       <div className="mb-3 rounded-2xl bg-sand-50 p-4 ring-1 ring-sand-400/40">
         <p className="font-bold">{idx + 1}/3 · {cur.title}{cur.required ? '' : ' (recommended)'}</p>
         <p className="mt-1 text-sm text-charcoal-700">{cur.hint}</p>
-        {idx === 0 && <p className="mt-1 text-xs text-charcoal-500">Photos from 3 angles let MuzzleID recognise this animal later even when it is photographed from the side.</p>}
+        {idx === 0 && <p className="mt-1 text-xs text-charcoal-500">Photos from 3 angles let OwaMuzzle recognise this animal later even when it is photographed from the side.</p>}
       </div>
 
       {mismatch !== null && pending && (

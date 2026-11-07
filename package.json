@@ -1,8 +1,8 @@
 {
-  "name": "muzzleid",
+  "name": "owamuzzle",
   "private": true,
   "version": "0.1.0",
-  "description": "MuzzleID — Every Animal Has an Identity. Livestock digital identity & traceability prototype.",
+  "description": "OwaMuzzle: livestock digital identity and traceability prototype.",
   "type": "module",
   "scripts": {
     "dev": "vite",

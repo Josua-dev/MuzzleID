@@ -126,7 +126,7 @@ export default function AnimalProfile({ id }: { id: string }) {
         {tab === 'identity' && (
           <div className="space-y-3">
             <Card className="px-4 py-1">
-              <KV k="MuzzleID" v={a.muzzle_id} mono />
+              <KV k="Muzzle ID" v={a.muzzle_id} mono />
               <KV k="Ear tag" v={a.ear_tag} mono />
               <KV k="Breed" v={a.breed} />
               <KV k="Sex" v={a.sex} />

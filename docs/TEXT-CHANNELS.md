@@ -1,6 +1,6 @@
 # SMS, WhatsApp and USSD lookup
 
-Lets a buyer, auctioneer or checkpoint check an animal with any phone. They send a MuzzleID (or `TAG NA-0238`)
+Lets a buyer, auctioneer or checkpoint check an animal with any phone. They send a Muzzle ID (or `TAG NA-0238`)
 and get back the register status: breed, region, owner initials, registration month, and whether an open theft or
 missing report exists. Replies never contain a phone number, address or farm. A lookup proves what the *register*
 says about the ID typed; it cannot prove the animal in front of you is that animal, and every reply says to confirm by

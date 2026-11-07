@@ -73,7 +73,7 @@ export default function Profile() {
       <Card className="p-4">
         <div className="flex items-center gap-3">
           <Icon name="device" className="text-forest-700" />
-          <div className="flex-1"><p className="font-bold">Install MuzzleID</p><p className="text-xs text-charcoal-500">{pwa.installed ? 'Installed on this device.' : 'Add to your home screen for offline access.'}</p></div>
+          <div className="flex-1"><p className="font-bold">Install OwaMuzzle</p><p className="text-xs text-charcoal-500">{pwa.installed ? 'Installed on this device.' : 'Add to your home screen for offline access.'}</p></div>
           {pwa.canInstall && <Button size="md" onClick={pwa.install}>Install</Button>}
         </div>
         {!pwa.canInstall && !pwa.installed && <p className="mt-2 text-xs text-charcoal-500">On Android: browser menu → “Install app”. On iPhone: Share → “Add to Home Screen”.</p>}
@@ -102,7 +102,7 @@ export default function Profile() {
       </Card>
 
       <Button full variant="outline" icon="logout" className="mt-6" onClick={async () => { await signOut(); navigate('/'); }}>Sign out</Button>
-      <p className="mt-6 text-center text-xs text-charcoal-400">MuzzleID prototype · v0.1</p>
+      <p className="mt-6 text-center text-xs text-charcoal-400">OwaMuzzle prototype · v0.1</p>
     </div>
   );
 }

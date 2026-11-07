@@ -79,7 +79,7 @@ export default function Alerts() {
       ) : <EmptyState icon="bell" title="You're all caught up" />}
 
       <SectionTitle>Reported livestock ({data.reports.length})</SectionTitle>
-      <p className="-mt-2 mb-3 text-xs text-charcoal-500">Animals currently reported stolen or missing in MuzzleID. Owner details are protected.</p>
+      <p className="-mt-2 mb-3 text-xs text-charcoal-500">Animals currently reported stolen or missing in OwaMuzzle. Owner details are protected.</p>
       <div className="space-y-2">
         {data.reports.map(({ r, a }) => (
           <Link key={r.id} to={`/app/animal/${a.id}`} className={cn('flex items-center gap-3 rounded-2xl bg-white p-3 ring-1', r.type === 'STOLEN' ? 'ring-red-300' : 'ring-amber-300')}>

@@ -1,10 +1,10 @@
-# MuzzleID — Every Animal Has an Identity.
+# OwaMuzzle
 
 A mobile-first, offline-capable livestock digital identity and traceability **prototype**.
-Farmers register cattle with a muzzle photo, get a permanent MuzzleID, and can later scan an animal
+Farmers register cattle with a muzzle photo, get a permanent Muzzle ID, and can later scan an animal
 to retrieve its record, check ownership, see theft/missing status, and keep health and transfer history.
 
-> **Prototype notice.** Muzzle matching now uses a real on-device local-feature matcher (`featureMatcher.ts`), but it is not a trained deep model and has only been benchmarked synthetically (`npx tsx scripts/bench.ts`). The scan-screen demo targets still use a simulated presenter hint. MuzzleID is an
+> **Prototype notice.** Muzzle matching now uses a real on-device local-feature matcher (`featureMatcher.ts`), but it is not a trained deep model and has only been benchmarked synthetically (`npx tsx scripts/bench.ts`). The scan-screen demo targets still use a simulated presenter hint. OwaMuzzle is an
 > additional digital identification layer. It does not replace legally required livestock identification
 > or branding, and no government, police, veterinary-authority or insurer integrations exist.
 > All demo people, farms and records are fictional.
@@ -25,19 +25,19 @@ No backend is needed: without Supabase keys the app runs in **Demo Mode** and st
 | Farmer | Petrus Haufiku — Omuramba Farm, Omaheke |
 | Veterinary | Dr. Selma Nangolo |
 | Verification | Linus Tjiramba |
-| Admin | MuzzleID Admin |
+| Admin | OwaMuzzle Admin |
 
 One-tap demo buttons are on the Sign in screen. Profile → Demo lets you switch role or reset data.
 
 ## Demo journey (all steps functional)
-1. Open MuzzleID → **TRY DEMO** → Farmer.
+1. Open OwaMuzzle → **TRY DEMO** → Farmer.
 2. Dashboard shows the herd (Total, Registered, Healthy, Missing/Stolen).
 3. **Register Cattle** → details → muzzle capture (camera, upload, or *sample muzzle photo*) → simulated processing → **IDENTITY CREATED** (`MZ-NA-000847`) → identity card.
 4. Animal appears in **My Livestock**.
 5. **Scan** → pick `MZ-NA-000238` under *Demo scan targets* → **MATCH FOUND** with simulated confidence.
 6. Scan `MZ-NA-000091` → red **ALERT — reported stolen/missing animal** → View record / Contact owner.
 7. Animal profile → Ownership, Health, History, Documents tabs.
-8. Profile → **Offline mode** on → register an animal → **PENDING SYNC** → Offline mode off → **SYNCING… → SYNC COMPLETE** (permanent MuzzleID issued).
+8. Profile → **Offline mode** on → register an animal → **PENDING SYNC** → Offline mode off → **SYNCING… → SYNC COMPLETE** (permanent Muzzle ID issued).
 
 Scanning an uploaded photo that was previously registered also matches (perceptual-hash simulator), and
 registering the same muzzle photo twice triggers a *possible duplicate* warning.
@@ -98,5 +98,5 @@ skipped. Offline registrations store all angles and enrol them on sync. `npx tsx
 side-vs-front check on simulated 25-degree views.
 
 ## Text-channel verification (SMS / WhatsApp / USSD)
-Check an animal with any phone by sending its MuzzleID. In-app simulator: `/app/sms`. Live service and setup:
+Check an animal with any phone by sending its Muzzle ID. In-app simulator: `/app/sms`. Live service and setup:
 `docs/TEXT-CHANNELS.md`. End-to-end test: `deno run -A scripts/lookup-e2e.ts`.

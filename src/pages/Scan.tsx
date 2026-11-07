@@ -171,7 +171,7 @@ function ScanResult({ result, probeImage, onAgain }: { result: MatchResult; prob
             </div>
           </div>
           <div className="p-5">
-            <p className="text-xs uppercase tracking-widest text-white/70">MuzzleID</p>
+            <p className="text-xs uppercase tracking-widest text-white/70">Muzzle ID</p>
             <p className="font-mono text-3xl font-bold">{a.muzzle_id}</p>
             <p className="mt-3 text-[15px] leading-snug">The scanned animal matches a livestock record currently reported as stolen or missing.</p>
             <div className="mt-4 flex gap-3 rounded-2xl bg-white p-3 text-charcoal-900">
@@ -221,7 +221,7 @@ function ScanResult({ result, probeImage, onAgain }: { result: MatchResult; prob
         <div className="p-5">
           <div className="flex items-end justify-between gap-3">
             <div>
-              <p className="text-xs uppercase tracking-widest text-charcoal-500">MuzzleID</p>
+              <p className="text-xs uppercase tracking-widest text-charcoal-500">Muzzle ID</p>
               <p className="font-mono text-3xl font-bold tracking-tight">{a.muzzle_id}</p>
             </div>
             <div className="text-right">
@@ -277,9 +277,9 @@ function OfflineScan() {
       <PageHeader title="Scan animal" subtitle="Offline mode" />
       <div className="rounded-3xl bg-charcoal-900 p-5 text-white">
         <div className="flex items-center gap-3"><Icon name="cloudOff" size={28} className="text-sand-400" /><p className="text-lg font-bold">Biometric matching needs a connection</p></div>
-        <p className="mt-2 text-sm text-white/75">Muzzle matching runs on the MuzzleID server and is not available offline. You can still look up records stored on this device by MuzzleID or ear tag.</p>
+        <p className="mt-2 text-sm text-white/75">Muzzle matching runs on the OwaMuzzle server and is not available offline. You can still look up records stored on this device by Muzzle ID or ear tag.</p>
       </div>
-      <Input className="mt-4" label="Look up a local record" placeholder="Search MuzzleID or ear tag" value={q} onChange={(e) => { setQ(e.target.value); setPicked(null); }} />
+      <Input className="mt-4" label="Look up a local record" placeholder="Search Muzzle ID or ear tag" value={q} onChange={(e) => { setQ(e.target.value); setPicked(null); }} />
       <div className="mt-3 space-y-2">
         {results.map((a) => (
           <button key={a.id} onClick={() => { setPicked(a); recordScan(user!, { animal_id: a.id, result: 'LOCAL_LOOKUP', simulated: false, mode: 'LOCAL' }, false); }} className="flex w-full items-center gap-3 rounded-2xl bg-white p-2.5 text-left ring-1 ring-charcoal-900/8">

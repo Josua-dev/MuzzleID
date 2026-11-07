@@ -1,4 +1,4 @@
-// MuzzleID domain models. These mirror the Supabase schema in /supabase/schema.sql.
+// OwaMuzzle domain models. These mirror the Supabase schema in /supabase/schema.sql.
 
 export type Role = 'FARMER' | 'VET' | 'VERIFIER' | 'ADMIN';
 

@@ -23,7 +23,7 @@ const users: User[] = [
   { id: 'u_farmer_3', role: 'FARMER', full_name: 'Hendrik Tjiveze', phone: '+264 81 555 0303', email: 'hendrik@demo.muzzleid.app', active: true, is_demo: true, password_hash: DEMO_HASH, created_at: daysAgo(250) },
   { id: 'u_vet_1', role: 'VET', full_name: 'Dr. Selma Nangolo', phone: '+264 81 555 0404', email: 'vet@demo.muzzleid.app', organisation: 'Demo Veterinary Practice (fictional)', active: true, is_demo: true, password_hash: DEMO_HASH, created_at: daysAgo(300) },
   { id: 'u_verifier_1', role: 'VERIFIER', full_name: 'Linus Tjiramba', phone: '+264 81 555 0505', email: 'verify@demo.muzzleid.app', organisation: 'Demo Auction Verification Desk (fictional)', active: true, is_demo: true, password_hash: DEMO_HASH, created_at: daysAgo(280) },
-  { id: 'u_admin_1', role: 'ADMIN', full_name: 'MuzzleID Admin', phone: '+264 81 555 0000', email: 'admin@demo.muzzleid.app', organisation: 'MuzzleID (prototype)', active: true, is_demo: true, password_hash: DEMO_HASH, created_at: daysAgo(360) },
+  { id: 'u_admin_1', role: 'ADMIN', full_name: 'OwaMuzzle Admin', phone: '+264 81 555 0000', email: 'admin@demo.muzzleid.app', organisation: 'OwaMuzzle (prototype)', active: true, is_demo: true, password_hash: DEMO_HASH, created_at: daysAgo(360) },
 ];
 
 const farmerProfiles: FarmerProfile[] = [

@@ -5,7 +5,7 @@ insert into public.profiles (id, role, full_name, phone, email, active, is_demo,
   ('u_farmer_3', 'FARMER', 'Hendrik Tjiveze', '+264 81 555 0303', 'hendrik@demo.muzzleid.app', true, true, '2026-03-02T09:10:00.000Z'),
   ('u_vet_1', 'VET', 'Dr. Selma Nangolo', '+264 81 555 0404', 'vet@demo.muzzleid.app', true, true, '2026-01-11T09:00:00.000Z'),
   ('u_verifier_1', 'VERIFIER', 'Linus Tjiramba', '+264 81 555 0505', 'verify@demo.muzzleid.app', true, true, '2026-01-31T09:40:00.000Z'),
-  ('u_admin_1', 'ADMIN', 'MuzzleID Admin', '+264 81 555 0000', 'admin@demo.muzzleid.app', true, true, '2025-11-12T09:00:00.000Z')
+  ('u_admin_1', 'ADMIN', 'OwaMuzzle Admin', '+264 81 555 0000', 'admin@demo.muzzleid.app', true, true, '2025-11-12T09:00:00.000Z')
 on conflict do nothing;
 
 insert into public.farmer_profiles (user_id, farm_name, region) values

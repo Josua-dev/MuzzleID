@@ -8,7 +8,7 @@ import type { BiometricEngine, BiometricTemplate, GalleryEntry, IdentifyOptions,
  *   POST {baseUrl}/identify  { reference, gallery? }   -> MatchResult
  */
 export class RemoteMuzzleEngine implements BiometricEngine {
-  readonly name = 'MuzzleID Recognition API';
+  readonly name = 'OwaMuzzle Recognition API';
   readonly simulated = false;
   readonly requiresNetwork = true;
   constructor(private baseUrl: string, readonly modelVersion = 'remote') {}
