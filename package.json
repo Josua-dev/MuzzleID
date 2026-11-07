@@ -1,0 +1,30 @@
+{
+  "name": "muzzleid",
+  "private": true,
+  "version": "0.1.0",
+  "description": "MuzzleID — Every Animal Has an Identity. Livestock digital identity & traceability prototype.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^4.3.2",
+    "@supabase/supabase-js": "^2.45.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.10",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jpeg-js": "^0.4.4",
+    "tailwindcss": "^4.1.10",
+    "tsx": "^4.23.15",
+    "typescript": "^5.8.3",
+    "vite": "^6.0.0"
+  }
+}
